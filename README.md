@@ -1,6 +1,6 @@
 # bitcraft
 
-A new Flutter project.
+A sample game for Flame Game Jam
 
 ## Getting Started
 

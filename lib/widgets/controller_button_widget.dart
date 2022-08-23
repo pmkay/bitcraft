@@ -1,10 +1,12 @@
-
 import 'package:flutter/cupertino.dart';
 
 class ControllerButtonWidget extends StatefulWidget {
   final String path;
   final VoidCallback onPressed;
-  const ControllerButtonWidget({Key? key, required this.path, required this.onPressed}) : super(key: key);
+
+  const ControllerButtonWidget(
+      {Key? key, required this.path, required this.onPressed})
+      : super(key: key);
 
   @override
   State<ControllerButtonWidget> createState() => _ControllerButtonWidgetState();
@@ -12,9 +14,10 @@ class ControllerButtonWidget extends StatefulWidget {
 
 class _ControllerButtonWidgetState extends State<ControllerButtonWidget> {
   bool isPressed = false;
+
   @override
   Widget build(BuildContext context) {
-    Size screenSize= MediaQuery.of(context).size;
+    Size screenSize = MediaQuery.of(context).size;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: GestureDetector(
@@ -24,18 +27,19 @@ class _ControllerButtonWidgetState extends State<ControllerButtonWidget> {
             widget.onPressed();
           });
         },
-          onTapUp: (_) {
-            setState(() {
-              isPressed = false;
-            });
-          },
-          child: Opacity(
-            opacity: isPressed? 0.5 : 0.8,
-            child: SizedBox(
-                height: screenSize.width/17,
-                width: screenSize.width/17,
-                child: Image.asset(widget.path)),
-          )
+        onTapUp: (_) {
+          setState(() {
+            isPressed = false;
+          });
+        },
+        child: Opacity(
+          opacity: isPressed ? 0.5 : 0.8,
+          child: SizedBox(
+            height: screenSize.width / 17,
+            width: screenSize.width / 17,
+            child: Image.asset(widget.path),
+          ),
+        ),
       ),
     );
   }
